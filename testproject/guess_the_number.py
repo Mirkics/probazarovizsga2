@@ -32,36 +32,37 @@ try:
     input_number = driver.find_element_by_xpath("/html/body/div/div[2]/input")
 
     time.sleep(2)
-    guess_button = driver.find_elements_by_class_name("btn btn-primary")
+    guess_button = driver.find_element_by_xpath('/html/body/div/div[2]/span/button')
     guess_button.click()
-
-
 
     time.sleep(2)
 
-    for guess in input_number:
-        if guess == number:
-            print("Yes! That is it.")
-        if guess > number:
-            print("Guess lower")
-    else:
-        print("Guess higher")
-
-    szamolok = 0
-    for i in range(1, 100):
-        szamolok += 1
+    # for i in input_number:
+    #     if guess == number:
+    #         print("Yes! That is it.")
+    #     if guess > number:
+    #         print("Guess lower")
+    # else:
+    #     print("Guess higher")
+    #
+    # szamolok = 0
+    # for i in range(1, 100):
+    #     szamolok += 1
 
 # határéertéken kívüli érték tesztelése
 # testdata = -19 message: Guess higher.", 255 message: "Guess lower."}
 
-    driver.find_element_by_xpath("/html/body/div/div[2]/input").send_keys('-19')
+    input_data_1 = driver.find_element_by_xpath("/html/body/div/div[2]/input").send_keys('-19')
     guess_button.click()
 
-    driver.find_element_by_tag_name("input").send_keys(i)
-    driver.find_element_by_xpath('//button[@class="btn btn-primary"]').click()
-    driver.find_element_by_tag_name("input").clear()
-    driver.find_element_by_xpath('//p[@class="alert alert-warning"]').text
-    / html / body / div / p[4]
+    answer = driver.find_element_by_xpath('//p[@class="alert alert-warning"]').text #driver.find_element_by_xpath('/html/body/div/p[4]')
+    input_number.clear()
+
+    # driver.find_element_by_name("input").send_keys("255")
+    # #driver.find_element_by_xpath('//button[@class="btn btn-primary"]').click()
+    # driver.find_element_by_name("input").clear()
+
+
 
 
 finally:
