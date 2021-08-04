@@ -34,10 +34,7 @@ try:
     film_list = driver.find_elements_by_xpath('/html/body/div[2]/div[3]/a')
     assert len(film_list) == 24
 
-
-
-
-#TC2: new upload
+# TC2: new upload
     film_title = 'Black widow'
     release_year = '2021'
     cron_year_events = '2020'
@@ -47,15 +44,15 @@ try:
 
     driver.find_element_by_xpath('/html/body/div[2]/div[1]/button').click()
     time.sleep(2)
-    driver.find_element_by_id("nomeFilme")
-    time.sleep(1)
-    driver.find_element_by_xpath('//*[@id="anoLancamentoFilme"]')
-    driver.find_element_by_xpath('//*[@id = "anoCronologiaFilme"]')
-    driver.find_element_by_id("linkTrailerFilme")
-    driver.find_element_by_id("linkImagemFilme")
-    driver.find_element_by_id("linkImdbFilme")
+    driver.find_element_by_id("nomeFilme").send_keys('Black widow')
+    driver.find_element_by_xpath('//*[@id="anoLancamentoFilme"]').send_keys('2021')
+    driver.find_element_by_xpath('//*[@id = "anoCronologiaFilme"]').send_keys('2020')
+    driver.find_element_by_id("linkTrailerFilme").send_keys('https://www.youtube.com/watch?v=Fp9pNPdNwjI')
+    driver.find_element_by_id("linkImagemFilme").send_keys('https://m.media-amazon.com/images/I/914MHuDfMSL._AC_UY327_FMwebp_QL65_.jpg')
+    driver.find_element_by_id("linkImdbFilme").send_keys('https://www.imdb.com/title/tt3480822/')
 
     save_button = driver.find_element_by_xpath("/html/body/div[2]/div[2]/fieldset/button[1]")
+    save_button.click()
 
     film_list = driver.find_elements_by_xpath('/html/body/div[2]/div[3]/a')
     assert len(film_list) == 25
