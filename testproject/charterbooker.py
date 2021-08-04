@@ -28,7 +28,18 @@ try:
     # Oldal betöltése
     driver.get('https://witty-hill-0acfceb03.azurestaticapps.net/charterbooker.html')
     time.sleep(2)
-
+     
+#utólag tettem be
+#     next_button = driver.find_element_by_class_name("next-btn next-btn1")
+#     select = driver.find_element_by_tag_name("bf_totalGuests").click()
+#     option = driver.find_element_by_xpath("//*[@id="step1"]/ul/li[1]/select/option[1]")
+#     select(option)
+#     click(next_button)
+     
+    
+#     click(next_button)
+         
+        
 
 finally:
     driver.close()
