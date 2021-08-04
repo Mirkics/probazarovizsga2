@@ -9,6 +9,7 @@ Amikor megvan a helyes szám, ellenőrizd le, hogy a szükséges lépések szám
 
 Teszteld le, hogy az applikáció helyesen kezeli az intervallumon kívüli találgatásokat.
 Az applikéció -19 vagy 255 értéknél nem szabad, hogy összeomoljon. Azt kell kiírnia, hogy alá vagy fölé találtál-e.'''
+import random
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -27,18 +28,21 @@ try:
     time.sleep(2)
 
     number = ()
-    guess = 36 # random számot beírni
-    input_number = driver.find_element_by_xpath("/html/body/div/div[2]/input").send_keys("36")
+    guess = random.randint(1, 100) # random számot beírni
+    input_number = driver.find_element_by_xpath("/html/body/div/div[2]/input")
+
+    time.sleep(2)
     guess_button = driver.find_elements_by_class_name("btn btn-primary")
+    guess_button.click()
+
 
 
     time.sleep(2)
 
-    if guess in input_number:
-        guess == number
-        print("Yes! That is it.")
-        if guess in input_number:
-            guess > number
+    for guess in input_number:
+        if guess == number:
+            print("Yes! That is it.")
+        if guess > number:
             print("Guess lower")
     else:
         print("Guess higher")
@@ -47,7 +51,17 @@ try:
     for i in range(1, 100):
         szamolok += 1
 
+# határéertéken kívüli érték tesztelése
+# testdata = -19 message: Guess higher.", 255 message: "Guess lower."}
 
+    driver.find_element_by_xpath("/html/body/div/div[2]/input").send_keys('-19')
+    guess_button.click()
+
+    driver.find_element_by_tag_name("input").send_keys(i)
+    driver.find_element_by_xpath('//button[@class="btn btn-primary"]').click()
+    driver.find_element_by_tag_name("input").clear()
+    driver.find_element_by_xpath('//p[@class="alert alert-warning"]').text
+    / html / body / div / p[4]
 
 
 finally:

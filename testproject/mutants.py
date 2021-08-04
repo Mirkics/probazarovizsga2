@@ -18,10 +18,6 @@ Az ellenőrzésekhez NEM kell teszt keretrendszert használnod (mint pl a pytest
 Egyszerűen használj elágazásokat NEM kell OOP-t használnod.
 Viszont tartalmazzon vizsgálatot a megodásod. Lehetőleg használj az assert összehasonlításokat."""
 
-
-
-
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager

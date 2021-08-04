@@ -96,10 +96,9 @@ try:
     input_email.send_keys("kis.laci@valami@valami.com")
     driver.find_element_by_name("bf_message").send_keys("Hello")
 
-
-    error_message_text = driver.find_element_by_xpath('//*[@id="bf_email-error"]').get_attribute('class')
+    error_message_text = driver.find_element_by_xpath('//*[@id="bf_email-error"]') # Hogyan kell innen kivenni a az error üzenetet?
     message = "Please enter a valid email address."
-    assert error_message_text == message
+    assert error_message_text == message  # hibára fut - AssertionError
     time.sleep(10)
 
 finally:
