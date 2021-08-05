@@ -30,6 +30,7 @@ try:
     number = ()
     guess = random.randint(1, 100) # random számot beírni
     input_number = driver.find_element_by_xpath("/html/body/div/div[2]/input")
+    input_number.send_keys(guess)
 
     time.sleep(2)
     guess_button = driver.find_element_by_xpath('/html/body/div/div[2]/span/button')
@@ -52,18 +53,22 @@ try:
 # határéertéken kívüli érték tesztelése
 # testdata = -19 message: Guess higher.", 255 message: "Guess lower."}
 
-    input_data_1 = driver.find_element_by_xpath("/html/body/div/div[2]/input").send_keys('-19')
+    input_number.send_keys('-19')
     guess_button.click()
 
-    answer = driver.find_element_by_xpath('//p[@class="alert alert-warning"]').text #driver.find_element_by_xpath('/html/body/div/p[4]')
+    answer_higher = driver.find_element_by_xpath('//p[@class="alert alert-warning"]').text
+    print(answer_higher)
+
+    assert answer_higher == "Guess higher."
+
     input_number.clear()
 
-    # driver.find_element_by_name("input").send_keys("255")
-    # #driver.find_element_by_xpath('//button[@class="btn btn-primary"]').click()
-    # driver.find_element_by_name("input").clear()
+    input_number.send_keys("255")
+    guess_button.click()
+    answer_lower = driver.find_element_by_xpath('/html/body/div/p[3]').text
+    print(answer_lower)
 
-
-
+    assert answer_lower == "Guess lower."
 
 finally:
     driver.close()
