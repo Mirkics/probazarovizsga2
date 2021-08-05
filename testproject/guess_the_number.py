@@ -27,16 +27,17 @@ try:
     driver.get('https://witty-hill-0acfceb03.azurestaticapps.net/guess_the_number.html')
     time.sleep(2)
 
-    number = ()
-    guess = random.randint(1, 100) # random számot beírni
+    # number = ()
+    # guess = random.randint(1, 100) # random számot beírni
     input_number = driver.find_element_by_xpath("/html/body/div/div[2]/input")
-    input_number.send_keys(guess)
-
-    time.sleep(2)
+    # input_number.send_keys(guess)
+    #
+    # time.sleep(2)
     guess_button = driver.find_element_by_xpath('/html/body/div/div[2]/span/button')
-    guess_button.click()
+    # guess_button.click()
+    # time.sleep(2)
 
-    time.sleep(2)
+    input_number.clear()
 
     # for i in input_number:
     #     if guess == number:
@@ -60,7 +61,7 @@ try:
     print(answer_higher)
 
     assert answer_higher == "Guess higher."
-
+    time.sleep(1)
     input_number.clear()
 
     input_number.send_keys("255")
