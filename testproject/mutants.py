@@ -38,6 +38,7 @@ try:
     print(iceman)
     assert iceman == "original factor"
     assert not iceman == 'hellfire'
+    assert not iceman == 'force'
 
     i_man = driver.find_element_by_xpath('//*[@id="iceman"]/h2').text
     print(i_man)
